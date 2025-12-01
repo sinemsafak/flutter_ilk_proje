@@ -15,17 +15,29 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: Scaffold(
+        backgroundColor: Colors.yellow,
         appBar: AppBar(
-          title: Text("başlık"),
-          backgroundColor: Colors.amber,
+          title: Text("Başlık"),
         ),
-        body: Text("Merhaba Dünya", style: TextStyle(color: Colors.red, fontSize: 24, fontWeight: FontWeight.bold),),
+      body: Container(
+        color: Colors.purple,
+        child: Text('sinem'*2, textAlign: TextAlign.center,
+        ),
+        constraints: BoxConstraints(
+           minWidth: 100,
+          minHeight: 100,
+          maxWidth: 200,
+          maxHeight: 200,
+        ),
+      ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {  //bu bir call back fonksiyondur
-            debugPrint("Butona tıklandı");
+          onPressed: () {  
+            debugPrint("Tıklandı");
           },
-          child: Icon(Icons.account_circle_rounded, color: Colors.blue[100]),
-          backgroundColor: Colors.red,
+          child: Icon(
+            Icons.account_circle_rounded, 
+            color: Colors.blue,
+            ),
         ),
       ),
     );
