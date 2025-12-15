@@ -15,21 +15,26 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: Scaffold(
-        backgroundColor: Colors.yellow,
         appBar: AppBar(
           title: Text("Başlık"),
         ),
-      body: Container(
-        color: Colors.purple,
-        child: Text('sinem'*2, textAlign: TextAlign.center,
-        ),
-        constraints: BoxConstraints(
-           minWidth: 100,
-          minHeight: 100,
-          maxWidth: 200,
-          maxHeight: 200,
+      body: Center( 
+        child: Container(
+          width: 200,
+          height: 200,
+          color: Colors.red,
+          child:Container(
+            alignment: Alignment.center,
+            color: Colors.blue,
+            margin: EdgeInsets.all(40),
+            width: 50,
+            height: 50,
+            child:Text("sinem"),
+          ),
         ),
       ),
+
+  
         floatingActionButton: FloatingActionButton(
           onPressed: () {  
             debugPrint("Tıklandı");
