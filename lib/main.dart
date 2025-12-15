@@ -18,23 +18,16 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Başlık"),
         ),
-      body: Center( 
-        child: Container(
-          width: 200,
-          height: 200,
-          color: Colors.red,
-          child:Container(
-            alignment: Alignment.center,
-            color: Colors.blue,
-            margin: EdgeInsets.all(40),
-            width: 50,
-            height: 50,
-            child:Text("sinem"),
-          ),
+      body: Center(
+        widthFactor: 2,
+        heightFactor: 2,
+        child:Container(
+          width: 100,
+          height: 100,
+          color:Colors.red,
+          child:Text("sinem"),
         ),
       ),
-
-  
         floatingActionButton: FloatingActionButton(
           onPressed: () {  
             debugPrint("Tıklandı");
