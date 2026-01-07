@@ -20,3 +20,25 @@ class EasyLoadingToastPage extends StatelessWidget {
     );
   }
 }
+
+void main() {
+  runApp(MyApp());
+  configLoading(); // EasyLoading yapılandırması
+}
+
+void configLoading() {
+  EasyLoading.instance
+    ..indicatorType = EasyLoadingIndicatorType.fadingCircle
+    ..loadingStyle = EasyLoadingStyle.custom
+    ..indicatorColor = Colors.blue;
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      builder: EasyLoading.init(),  // EasyLoading'i buraya ekliyoruz
+      home: EasyLoadingToastPage(),
+    );
+  }
+}
