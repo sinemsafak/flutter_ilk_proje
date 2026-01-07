@@ -1,89 +1,96 @@
 import 'package:flutter/material.dart';
+import 'card_list_tile_divider_page.dart';
+import 'listview_generate_map_page.dart';
+import 'listview_builder_separator_page.dart';
+import 'easyloading_toast_page.dart';
+import 'alert_dialog_page.dart';
+import 'bottom_bar_list_body_page.dart';
+import 'layout_sorunlari_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Flutter Dersleri"),
-          backgroundColor: Colors.teal,
-        ),
-
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: Colors.orange,
-          child: const Icon(Icons.add),
-        ),
-
-        body: Row(
-          children: [
-            /// SOL DİKEY ALAN (D E R S L E R İ)
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                buildBox("D"),
-                buildBox("E"),
-                buildBox("R"),
-                buildBox("S"),
-                buildBox("L"),
-                buildBox("E"),
-                buildBox("R"),
-                buildBox("İ"),
-              ],
-            ),
-
-            /// SAĞ ANA ALAN
-            Expanded(
-              child: Column(
-                children: [
-                  /// ÜST YATAY ROW (D A R T)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      buildBox("A"),
-                      buildBox("R"),
-                      buildBox("T"),
-                    ],
-                  ),
-
-                  /// ORTA BOŞ ALAN
-                  Expanded(
-                    child: Container(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+      home: MainPage(),
     );
   }
+}
 
-  /// KUTU WIDGET'I
-  static Widget buildBox(String text) {
-    return Container(
-      margin: const EdgeInsets.all(4),
-      width: 50,
-      height: 50,
-      alignment: Alignment.center,
-      color: Colors.orange,
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-        ),
+class MainPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Flutter Örnekler')),
+      body: ListView(
+        children: [
+          ListTile(
+            title: Text('Card, ListTile ve Divider Kullanımı'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CardListTileDividerPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('ListView Temel Kullanımı ve List.generate'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ListViewGeneratePage()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Bellek Dostu Liste ve SeparatorBuilder'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ListViewBuilderSeparatorPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Liste Tıklanma ve EasyLoading'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EasyLoadingToastPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('AlertDialog Kullanımı'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AlertDialogPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('BottomBar ve ListBody Kullanımı'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BottomBarListBodyPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Layout Sorunları ve Çözümleri'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LayoutSorunlariPage()),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
