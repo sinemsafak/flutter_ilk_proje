@@ -5,7 +5,7 @@ class ListViewBuilderSeparatorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Bellek Dostu Liste: ItemBuilder')),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: 20,
         itemBuilder: (context, index) {
           return ListTile(
@@ -13,7 +13,7 @@ class ListViewBuilderSeparatorPage extends StatelessWidget {
           );
         },
         separatorBuilder: (context, index) {
-          return Divider();
+          return Divider();  // Ayırıcı eklemek için separatorBuilder
         },
       ),
     );
