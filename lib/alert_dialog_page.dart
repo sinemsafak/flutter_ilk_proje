@@ -1,31 +1,43 @@
 import 'package:flutter/material.dart';
 
-class AlertDialogPage extends StatelessWidget {
+class AlertDialogPage extends StatefulWidget {
+  const AlertDialogPage({super.key});
+
+  @override
+  State<AlertDialogPage> createState() => _AlertDialogPageState();
+}
+
+class _AlertDialogPageState extends State<AlertDialogPage> {
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _showAlert();
+    });
+  }
+
+  void _showAlert() {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: const Text("Alert Dialog"),
+        content: const Text("Sadece bu sayfa çalışıyor 🚀"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("OK"),
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('AlertDialog Kullanımı')),
+    return const Scaffold(
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                title: Text('Uyarı'),
-                content: Text('Bu bir uyarı mesajıdır!'),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text('Tamam'),
-                  ),
-                ],
-              ),
-            );
-          },
-          child: Text('Dialog Göster'),
-        ),
+        child: Text("Alert Dialog Page"),
       ),
     );
   }
